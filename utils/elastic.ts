@@ -16,8 +16,10 @@ import {
   EsResult,
 } from "../types/search_types";
 
+// const URL: string =
+// macros.getEnvVariable("elasticURL") || "http://localhost:9200";
 const URL: string =
-  macros.getEnvVariable("elasticURL") || "http://localhost:9200";
+  macros.getEnvVariable("elasticURL") || "http://172.24.0.2:9200";
 const client = new Client({ node: URL });
 
 const BULKSIZE = 5000;
