@@ -59,7 +59,7 @@ The custom scrape will _not_ overwrite the cache, and therefore it will also nev
 ### Flags
 
 - `truncate`
-  - If `truncate` is set to true, then the `courses` and `sections` tables in your local database will be cleared before they are re-populated with the scraped data. The `classes` elasticsearch index will also be cleared before being re-populated with scraped data.
+  - If `truncate` is set to true, then the `courses` and `sections` tables in your local database will be cleared before they are re-populated with the scraped data. The `classes` and `employees` elasticsearch indices will also be cleared before being re-populated with scraped data.
 
 ### Related Courses
 

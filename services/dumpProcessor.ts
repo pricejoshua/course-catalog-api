@@ -197,7 +197,7 @@ class DumpProcessor {
       .filter((s) => courseIds.has(s.classHash));
 
     await Promise.all(
-      _.chunk(processedSections, 2000).map(async (sections) => {
+      _.chunk(processedSections, 200).map(async (sections) => {
         await prisma.$executeRaw(
           this.bulkUpsert("sections", sectionCols, sectionTransforms, sections)
         );

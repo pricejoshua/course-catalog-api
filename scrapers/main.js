@@ -8,6 +8,7 @@ import macros from "../utils/macros";
 import classes from "./classes/main";
 import dumpProcessor from "../services/dumpProcessor";
 import prisma from "../services/prisma";
+import { exit } from "process";
 
 // Main file for scraping
 // Run this to run all the scrapers
@@ -32,5 +33,8 @@ if (require.main === module) {
   instance
     .main()
     .then(() => prisma.$disconnect())
-    .catch((err) => macros.error(JSON.stringify(err)));
+    .catch((err) => {
+      macros.error(JSON.stringify(err));
+      exit(1);
+    });
 }
