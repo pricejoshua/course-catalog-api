@@ -518,7 +518,9 @@ class Request {
         this.analytics[hostname].totalBytesDownloaded += response.body.length;
         if (!macros.PROD) {
           macros.log(
-            `Parsed ${response.body.length} in ${requestDuration} ms from ${config.url}`
+            `Parsed ${response.body.length} in ${requestDuration} ms from ${
+              config.url
+            } ${JSON.stringify(config.qs)}`
           );
         }
 

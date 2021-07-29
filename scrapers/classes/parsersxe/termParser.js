@@ -103,7 +103,15 @@ class TermParser {
 
   async parseSections(termId) {
     const searchResults = await this.requestsSectionsForTerm(termId);
-    return searchResults.map((a) => {
+    const filteredSearchResults = _.compact(searchResults);
+    if (searchResults.length != filteredSearchResults.length) {
+      macros.warn(
+        `found ${
+          searchResults.length - filteredSearchResults.length
+        } falsy values in search result sections for termId ${termId}`
+      );
+    }
+    return filteredSearchResults.map((a) => {
       return SectionParser.parseSectionFromSearchResult(a);
     });
   }
