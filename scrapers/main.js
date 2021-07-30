@@ -15,13 +15,18 @@ import { exit } from "process";
 
 class Main {
   async main() {
-    const classesPromise = classes.main(["neu"]);
-
-    const promises = [classesPromise, matchEmployees.main()];
-
-    const [termDump, mergedEmployees] = await Promise.all(promises);
-
-    await dumpProcessor.main({ termDump: termDump, profDump: mergedEmployees });
+    try {
+      const classesPromise = classes.main(["neu"]);
+      const promises = [classesPromise, matchEmployees.main()];
+      const [termDump, mergedEmployees] = await Promise.all(promises);
+      await dumpProcessor.main({
+        termDump: termDump,
+        profDump: mergedEmployees,
+      });
+    } catch (e) {
+      macros.error(e);
+      throw e;
+    }
 
     macros.log("done scrapers/main.js");
   }
