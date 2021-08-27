@@ -71,7 +71,7 @@ class Updater {
   constructor() {
     this.COURSE_MODEL = "course";
     this.SECTION_MODEL = "section";
-    this.SEMS_TO_UPDATE = ["202160", "202154", "202150", "202140"];
+    this.SEMS_TO_UPDATE = ["202210", "202160", "202154", "202150", "202140"];
   }
 
   // TODO must call this in server
@@ -121,11 +121,8 @@ class Updater {
   async getNotificationInfo(
     sections: ScrapedSection[]
   ): Promise<NotificationInfo> {
-    const {
-      oldClassLookup,
-      oldSectionLookup,
-      oldSectionsByClass,
-    } = await this.getOldData();
+    const { oldClassLookup, oldSectionLookup, oldSectionsByClass } =
+      await this.getOldData();
     const newSectionsByClass: Record<string, string[]> = {};
 
     // map of courseHash to newly scraped sections
@@ -242,8 +239,10 @@ class Updater {
       notificationInfo.updatedCourses.length === 0 &&
       notificationInfo.updatedSections.length === 0
     ) {
+      macros.log("no updates to send!");
       return;
     }
+
     const body = JSON.stringify(notificationInfo);
     const DEST_URL = macros.PROD
       ? process.env.UPDATER_URL
