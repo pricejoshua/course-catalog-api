@@ -8,7 +8,7 @@ import ProfSerializer from "./profSerializer";
 class ElasticProfSerializer extends ProfSerializer {
   /* eslint-disable no-underscore-dangle */
   _serializeProf(prof) {
-    return _.pick(prof, ["name", "emails", "phone"]);
+    return _.pick(prof, ["id", "name", "emails", "phone"]);
   }
 }
 
