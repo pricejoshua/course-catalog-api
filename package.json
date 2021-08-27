@@ -17,6 +17,7 @@
     "dev:docker:del": "docker-compose -f infrastructure/dev/docker-compose.yml down -v",
     "db:migrate": "npx prisma migrate dev --preview-feature",
     "db:refresh": "npx prisma generate",
+    "dev:fullstart": "yarn dev:docker && sleep 2 && yarn db:migrate && yarn db:refresh && yarn resetIndex && sleep 2 && yarn scrape:custom && yarn dev",
     "-linting-": "--------linting--------",
     "lint": "yarn eslint --ignore-path .gitignore --ext .js,.ts .",
     "style": "yarn prettier --write .",

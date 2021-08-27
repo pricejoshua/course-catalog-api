@@ -1,7 +1,7 @@
 const filters = {
   campus: (campus) => true,
   subject: (subject) => ["CS"].includes(subject),
-  courseNumber: (courseNumber) => courseNumber >= 2500,
+  courseNumber: (courseNumber) => courseNumber <= 3000,
   truncate: true,
 };
 
