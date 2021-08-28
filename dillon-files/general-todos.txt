@@ -8,8 +8,10 @@
 	- profSerializer._serializeProf() throws error, why does it 
 	- Frontend commit regarding serializers: https://github.com/sandboxnu/searchneu/blob/07486024ec1d8fca38221405548097d0154a0598/backend/database/serializers/profSerializer.js
 3. Run CCA Docker Container locally
+  - Check 'local-docker.txt' for more specific notes
 	- Have separate package.json script to connect to Docker IPs vs localhost
 	- Only run Docker IP script from dockerfile
+  - Ideally we encapsulate it all in docker-compose.yml, same as Postgres + ES get setup
 4. Scraping GUI:
 	- At beginning print term, whether custom or not, if custom print filters
 	- Separate sections for each phase, with progress bars
@@ -44,10 +46,10 @@
 		- I always want to run it right after dev:docker anyway
 	- yarn db:refresh does what exactly? Never used it
 		- Generates Prisma client? No docs for this
-	- ssh config
 	- Scroll way back in searchneu history to find GitHub script to redeploy staging images on push to master
 	- 2-year-scrape showed 8000 open requests, might just be forgetting to adjust count
 	- script the yarn dev:docker && sleep 10 && yarn db:migrate ... etc
+    - Implemented in package.json
 	- Add docs for /infrastructure scripts, e.g. "Run ./infrastructure/aws/push-image to push a staging image"
 		- Had to create access key pair on aws console and 'aws configure' to login
   - Move yarn install into Dockerfile as opposed to in entrypoint.sh
