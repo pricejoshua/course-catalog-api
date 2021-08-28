@@ -1,13 +1,3 @@
-Choose vpc + subnets that match Terraform plan
-Can now choose API load balancer
-
-docker build .
-docker images
-docker tag <aws_URI>:staging
-aws ecr get-login-password
-docker login -u AWS -p <password> <aws_account_id>.dkr.ecr.<region>.amazonaws.com
-got a permissions error trying to push new docker image
-
 ================================================================================
 Running both images locally:
 ================================================================================
