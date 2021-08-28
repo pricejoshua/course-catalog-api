@@ -45,7 +45,11 @@ docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}
 // Use IPAddress as [ELASTICSEARCH_IP_ADDRESS]
 docker inspect [ELASTICSEARCH_ID] > [TEMP_FILE]
 
-// In /prisma/.env change DATABASE_URL to use [POSTGRES_IP_ADDRESS]
+// The dockerized CCA will not be able to go to 'localhost:XXXX' to access
+// Postgres and Elasticearch like a regular local CCA would, so we have to
+// tell it to use the docker network IPs of Postgres and Elasticsearch:
+// - In /prisma/.env change DATABASE_URL to use [POSTGRES_IP_ADDRESS]
+// - In /utils/elastic.ts change URL to use [ELASTICSEARCH_IP_ADDRESS]
 
 // Build a docker image according to the Dockerfile
 docker build .
@@ -73,11 +77,11 @@ docker stop [CCA_NAME]
 // Examples of what your variables might look like
 [CCA_NAME] = webserver
 [TEMP_FILE] = dillon.json
-[NETWORK_ID] = 2b983160bc9a
-[POSTGRES_ID] = 36c06f5c7b58
-[ELASTICSEARCH_ID] = 819cbc2f8230
-[POSTGRES_IP_ADDRESS] = 172.24.0.3
-[ELASTICSEARCH_IP_ADDRESS] = 172.24.0.2
-[CCA_IMAGE_ID] = c465588991b7
+[NETWORK_ID] = 7249d03eab1d
+[POSTGRES_ID] = 7605d19d8cac
+[ELASTICSEARCH_ID] = cfde1be92ced
+[POSTGRES_IP_ADDRESS] = 172.27.0.3
+[ELASTICSEARCH_IP_ADDRESS] = 172.27.0.2
+[CCA_IMAGE_ID] = 5cbadbbd2441
 
 ================================================================================
