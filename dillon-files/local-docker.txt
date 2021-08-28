@@ -15,7 +15,7 @@ docker container rm [CCA_NAME]
 
 // Create network "dev_default", volume "dev_pg", containers "dev_postresql_1" 
 // and "dev_es_1"
-yarn dev:docker
+yarn dev:docker OR 'yarn dev:fullstart' if you want to do all db setup as well
 
 // Show network IDs, use dev_default's as [NETWORK_ID]
 docker network ls
