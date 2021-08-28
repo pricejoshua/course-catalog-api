@@ -1,5 +1,5 @@
 1. Deployment shenanigans
-	- Ideally node_modules wouldn't be copied to dist. Currently they are copied but not only sorta - if you remove '--ignore' it errors
+	- Ideally node_modules wouldn't be copied to dist. Currently they are copied but only sorta - if you remove '--ignore' it errors
 	- Currently dist is removed before build and dist/.git is removed after
 		- Ideally we aren't building from the root directory, but from src, that way we can only copy src files to dist
 2. ES insertion broken
@@ -22,31 +22,24 @@
 5. Misc
 	- Add author field to Trello for reference (is this Resident Expert?)
 	- Uptime Monitor
-	- Frontend tests failing (GitHub Actions)
 	- Cleanup old PRs + branches
     - Maybe someone is accidentally pushing old branches? I feel like we deleted branches that have then come back, not sure :ghost:
 	- PR feedback - how to ensure no double-work? Trello card? Slack thread?
-	- sudo pkill -u postgres
+	- sudo pkill -u postgres - fixes "port 5432 in use" error
 	- Course Number filter doesn't work sometimes (maybe just hundreds?)
 		- e.g. "ESLG" with max of 500 returns
 	- Megan's 2 year scrape kills ES image
-	- wtf is Rollbar - is it sending emails on every macros.error()?
 	- If you search, scroll down, and then do a second search that keeps the same first search result, then the second search won't scroll back to the top
 		- e.g. Spring 2021 -> "Rachlin" -> scroll down -> "CS 1800"
 	- Frontend README docs link broken
 	- Trello "in prod" not technically true anymore, do we need "to release" col?
 	- Change npx to yarn
 	- Prune dependencies that should be devDependencies
-	- Jake's <br> frontend bug
+	- Jake Chvatal's <br> frontend bug
 	- "clientVersion" error happens when Postgres URL is incorrect
 	- SearchNEU Spring 2020 prod has nothing (last occurrence of PHYS 5126)
-	- Template string logging - move operations into separate var so everything is always one line
 	- Tests failing (regtest, etc.)
 	- Scraper log: "Parsed undefined in ..."
-	- Why is yarn db:migrate a separate command?
-		- I always want to run it right after dev:docker anyway
-	- yarn db:refresh does what exactly? Never used it
-		- Generates Prisma client? No docs for this
 	- Scroll way back in searchneu history to find GitHub script to redeploy staging images on push to master
 	- 2-year-scrape showed 8000 open requests, might just be forgetting to adjust count
 	- script the yarn dev:docker && sleep 10 && yarn db:migrate ... etc
