@@ -23,7 +23,8 @@
 	- Add author field to Trello for reference (is this Resident Expert?)
 	- Uptime Monitor
 	- Frontend tests failing (GitHub Actions)
-	- Cleanup old PRs
+	- Cleanup old PRs + branches
+    - Maybe someone is accidentally pushing old branches? I feel like we deleted branches that have then come back, not sure :ghost:
 	- PR feedback - how to ensure no double-work? Trello card? Slack thread?
 	- sudo pkill -u postgres
 	- Course Number filter doesn't work sometimes (maybe just hundreds?)
