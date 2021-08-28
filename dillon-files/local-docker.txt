@@ -74,4 +74,8 @@ docker stop [CCA_NAME]
 [ELASTICSEARCH_IP_ADDRESS] = 172.27.0.2
 [CCA_IMAGE_ID] = 5cbadbbd2441
 
-================================================================================
+// IMPORTANT NOTE:
+// Docker images can take up a lot of space. Even if you delete the images
+// after using them, Docker does some caching that can take up a LOT of
+// space. This command will remove those caches:
+docker system prune
