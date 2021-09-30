@@ -6,6 +6,7 @@ import twilioNotifyer from "./notifs";
 import notificationsManager from "../services/notificationsManager";
 import macros from "../utils/macros";
 
+console.log("made it to twilio/server");
 const corsOptions = {
   origin: process.env.CLIENT_ORIGIN,
 };
