@@ -165,5 +165,7 @@ class TwilioNotifyer {
   }
 }
 
+console.log("right before creating instance of twilio notifyer");
 const instance = new TwilioNotifyer();
+console.log("created instance of twilio notifyer");
 export default instance;
