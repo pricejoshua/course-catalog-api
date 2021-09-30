@@ -17,7 +17,9 @@ import majorOccurrenceTypeDef from "./typeDefs/majorOccurrence";
 
 console.log(`macros.PROD=${macros.PROD}`);
 if (macros.PROD || process.env.ENABLE_NOTIFS) {
+  console.log("about to require twilio/server");
   require("../twilio/server");
+  console.log("required twilio/server");
 }
 
 // Enable JSON custom type

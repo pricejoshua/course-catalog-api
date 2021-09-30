@@ -1,6 +1,6 @@
 import prisma from "./prisma";
 import { UserInfo } from "../types/notifTypes";
-
+console.log("imported NotificationsManager");
 class NotificationsManager {
   async upsertUser(phoneNumber: string): Promise<void> {
     await prisma.user.upsert({
