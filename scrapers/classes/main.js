@@ -109,7 +109,7 @@ class Main {
 
     const bannerv9Url = bannerv9Urls[0];
 
-    macros.warn("BOUT TO SCRAPE");
+    macros.warn("BOUT TO SCRAPE!!!");
     const bannerv9ParserOutput = await bannerv9Parser.main(bannerv9Url);
     macros.warn("SCRAPEd");
 
