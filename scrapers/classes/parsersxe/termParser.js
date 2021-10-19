@@ -23,6 +23,7 @@ class TermParser {
    * @returns Object {classes, sections} where classes is a list of class data
    */
   async parseTerm(termId) {
+    macros.log(`Starting scrape for term ${termId}`);
     const subjectTable = await getSubjectDescriptions(termId);
     let sections = await this.parseSections(termId);
     const courseIdentifiers = {};
@@ -64,7 +65,7 @@ class TermParser {
     }
 
     macros.log(
-      `scraped ${classes.length} classes and ${sections.length} sections`
+      `Scraped ${classes.length} classes and ${sections.length} sections for term ${termId}`
     );
 
     return { classes, sections, subjects: subjectTable };
@@ -145,6 +146,7 @@ class TermParser {
    * @return {Promise<Array>}
    */
   async requestsSectionsForTerm(termCode) {
+    macros.log(`Gathering section data for ${termCode}`);
     const cookiejar = await util.getCookiesForSearch(termCode);
     // second, get the total number of sections in this semester
     try {

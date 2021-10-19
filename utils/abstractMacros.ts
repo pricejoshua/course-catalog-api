@@ -38,6 +38,7 @@ class Macros {
   // Will log as normal, but stays silent during testing
   static log(...args: any) {
     if (process.env.NODE_ENV === "test") {
+      console.log(...args);
       return;
     }
 

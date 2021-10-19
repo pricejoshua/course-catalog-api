@@ -14,6 +14,7 @@ import prisma from "../services/prisma";
 
 class Main {
   async main() {
+    macros.log("Starting scrape of classes and employees");
     const classesPromise = classes.main(["neu"]);
 
     const promises = [classesPromise, matchEmployees.main()];
