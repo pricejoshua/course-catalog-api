@@ -244,7 +244,7 @@ class Cssh {
       macros.log(people.length, "cssh people saved to a file!");
     }
 
-    macros.log("Finished scrape for CSSH employees");
+    macros.log("Finished scraping data for CSSH employees");
 
     return people;
   }

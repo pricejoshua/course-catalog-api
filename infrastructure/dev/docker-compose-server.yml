@@ -23,7 +23,7 @@ services:
     depends_on:
       - es
       - postgresql
-    command: yarn prod
+    command: yarn prod:scrape
     ports:
       - 4000:4000
       - 8080:8080

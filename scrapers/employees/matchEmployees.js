@@ -437,7 +437,7 @@ class CombineCCISandEmployees {
       JSON.stringify(employeeDump)
     );
 
-    macros.log("Finished scrape for employees");
+    macros.log("Finished scraping data for employees");
 
     return mergedEmployees;
   }

@@ -126,7 +126,7 @@ class COE {
       macros.log(peopleObjects.length, "coe people saved!");
     }
 
-    macros.log("Finished scrape for COE employees");
+    macros.log("Finished scraping data for COE employees");
     return peopleObjects;
   }
 }

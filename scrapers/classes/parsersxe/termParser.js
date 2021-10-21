@@ -51,7 +51,7 @@ class TermParser {
       ] = { termId, subject, classId };
     });
 
-    macros.log(`Gathering class data for term ${termId}`);
+    macros.log(`Starting scrape for class data for term ${termId}`);
     let classes = await pMap(
       Object.values(courseIdentifiers),
       ({ subject, classId }) => {
@@ -59,6 +59,7 @@ class TermParser {
       },
       { concurrency: 500 }
     );
+    macros.log(`Finished scraping class data for term ${termId}`);
 
     // Custom scrapes should not scrape coreqs/prereqs/etc.
     if (!process.env.CUSTOM_SCRAPE) {
@@ -66,7 +67,7 @@ class TermParser {
     }
 
     macros.log(
-      `Finished scrape for term ${termId}. Scraped ${classes.length} classes and ${sections.length} sections`
+      `Finished scraping for term ${termId}. Scraped ${classes.length} classes and ${sections.length} sections`
     );
 
     return { classes, sections, subjects: subjectTable };
@@ -147,7 +148,7 @@ class TermParser {
    * @return {Promise<Array>}
    */
   async requestsSectionsForTerm(termCode) {
-    macros.log(`Gathering section data for ${termCode}`);
+    macros.log(`Starting scrape for section data for ${termCode}`);
     const cookiejar = await util.getCookiesForSearch(termCode);
     // second, get the total number of sections in this semester
     try {
@@ -170,6 +171,8 @@ class TermParser {
     } catch (error) {
       macros.error(`Could not get section data for ${termCode}`);
     }
+
+    macros.log(`Finished scraping section data for ${termCode}`);
     return Promise.reject();
   }
 

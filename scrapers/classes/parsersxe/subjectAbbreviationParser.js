@@ -16,7 +16,7 @@ const request = new Request("subjectAbberviationParser");
  */
 export const getSubjectAbbreviations = _.memoize(async (termId) => {
   macros.log(
-    `SubjectAbberviationParser: Not memoized. Starting scraping of subjects for term ${termId}`
+    `SubjectAbberviationParser: Not memoized. Starting scrape of subjects for term ${termId}`
   );
   const subjectResponse = await requestSubjects(termId);
   macros.log(`Finished scraping subjects for term ${termId}`);

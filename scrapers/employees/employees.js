@@ -399,7 +399,7 @@ class Employee {
 
     await Promise.all(promises);
 
-    macros.verbose("Finished scrape for NEU employees");
+    macros.verbose("Finished scraping data for NEU employees");
 
     if (macros.DEV) {
       await cache.set(

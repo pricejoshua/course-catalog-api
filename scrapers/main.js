@@ -23,7 +23,7 @@ class Main {
 
     await dumpProcessor.main({ termDump: termDump, profDump: mergedEmployees });
 
-    macros.log("Finished scrapers/main.js process");
+    macros.log("Finished scraping data for classes and employees");
   }
 }
 

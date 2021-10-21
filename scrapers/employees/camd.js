@@ -207,7 +207,7 @@ class Camd {
       macros.log(people.length, "camd people saved to the cache file!");
     }
 
-    macros.log("Finished scrape for CAMD employees");
+    macros.log("Finished scraping data for CAMD employees");
 
     return people;
   }

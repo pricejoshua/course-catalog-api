@@ -231,7 +231,7 @@ class NeuCCISFaculty {
       macros.log(output.length, "people in ccis saved to a file!");
     }
 
-    macros.log("Finished scrape for CCIS employees");
+    macros.log("Finished scraping data for CCIS employees");
     return output;
   }
 }
