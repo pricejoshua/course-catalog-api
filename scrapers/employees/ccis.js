@@ -187,6 +187,7 @@ class NeuCCISFaculty {
   }
 
   async main() {
+    macros.log("Starting scrape for CCIS employees");
     // If this is dev and this data is already scraped, just return the data.
     if (macros.DEV && require.main !== module) {
       const devData = await cache.get(
@@ -230,7 +231,7 @@ class NeuCCISFaculty {
       macros.log(output.length, "people in ccis saved to a file!");
     }
 
-    macros.log("done!");
+    macros.log("Finished scrape for CCIS employees");
     return output;
   }
 }

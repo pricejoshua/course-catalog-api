@@ -108,7 +108,8 @@ class CombineCCISandEmployees {
     return true;
   }
 
-  async main(peopleLists) {
+  async main() {
+    macros.log("Starting scrape for employees");
     peopleLists = await Promise.all([
       neuEmployees.main(),
       ccisFaculty.main(),
@@ -435,6 +436,8 @@ class CombineCCISandEmployees {
       path.join(macros.PUBLIC_DIR, "employeeDump.json"),
       JSON.stringify(employeeDump)
     );
+
+    macros.log("Finished scrape for employees");
 
     return mergedEmployees;
   }

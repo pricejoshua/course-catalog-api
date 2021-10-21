@@ -30,7 +30,6 @@ class ClassParser {
    * @param courseNumber course number of class
    */
   async parseClass(termId, subject, courseNumber) {
-    macros.log(`Gathering class data for term ${termId}`);
     const cookiejar = await util.getCookiesForSearch(termId);
     const req = await request.get({
       url: "https://nubanner.neu.edu/StudentRegistrationSsb/ssb/courseSearchResults/courseSearchResults",

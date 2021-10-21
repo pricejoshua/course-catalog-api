@@ -374,6 +374,7 @@ class Employee {
   }
 
   async main() {
+    macros.log("Starting scrape for NEU employees");
     // if this is dev and this data is already scraped, just return the data
     if (macros.DEV && require.main !== module) {
       const devData = await cache.get(
@@ -398,7 +399,7 @@ class Employee {
 
     await Promise.all(promises);
 
-    macros.verbose("Done all employee requests");
+    macros.verbose("Finished scrape for NEU employees");
 
     if (macros.DEV) {
       await cache.set(

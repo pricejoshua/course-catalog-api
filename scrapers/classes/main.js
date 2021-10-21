@@ -109,9 +109,9 @@ class Main {
 
     const bannerv9Url = bannerv9Urls[0];
 
-    macros.log(`Starting class scrape for ${bannerv9Url}`);
+    macros.log(`Starting scrape for classes at ${bannerv9Url}`);
     const bannerv9ParserOutput = await bannerv9Parser.main(bannerv9Url);
-    macros.log("Finished scraping classes");
+    macros.log("Finished scraping all classes");
 
     const dump = this.runProcessors(bannerv9ParserOutput);
 

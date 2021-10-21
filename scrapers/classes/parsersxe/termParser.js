@@ -51,6 +51,7 @@ class TermParser {
       ] = { termId, subject, classId };
     });
 
+    macros.log(`Gathering class data for term ${termId}`);
     let classes = await pMap(
       Object.values(courseIdentifiers),
       ({ subject, classId }) => {
@@ -61,11 +62,11 @@ class TermParser {
 
     // Custom scrapes should not scrape coreqs/prereqs/etc.
     if (!process.env.CUSTOM_SCRAPE) {
-      classes = await this.addCourseRefs(classes, courseIdentifiers, termId);
+      classes = await this.addCourseReqs(classes, courseIdentifiers, termId);
     }
 
     macros.log(
-      `Scraped ${classes.length} classes and ${sections.length} sections for term ${termId}`
+      `Finished scrape for term ${termId}. Scraped ${classes.length} classes and ${sections.length} sections`
     );
 
     return { classes, sections, subjects: subjectTable };
@@ -78,7 +79,7 @@ class TermParser {
    * @param {*} termId the termId we are scraping
    * @returns the input classes array, mutated to include coreqs/prereqs/etc
    */
-  async addCourseRefs(classes, courseIdentifiers, termId) {
+  async addCourseReqs(classes, courseIdentifiers, termId) {
     const refsPerCourse = classes.map((c) => ClassParser.getAllCourseRefs(c));
     const courseRefs = Object.assign({}, ...refsPerCourse);
     await pMap(
