@@ -16,9 +16,10 @@ const request = new Request("subjectAbberviationParser");
  */
 export const getSubjectAbbreviations = _.memoize(async (termId) => {
   macros.log(
-    `SubjectAbberviationParser: Not memoized. Scraping term ${termId}`
+    `SubjectAbberviationParser: Not memoized. Starting scraping of subjects for term ${termId}`
   );
   const subjectResponse = await requestSubjects(termId);
+  macros.log(`Finished scraping subjects for term ${termId}`);
   return createDescriptionTable(subjectResponse);
 });
 
@@ -36,6 +37,9 @@ async function requestSubjects(termId) {
     url: subjectUrl,
     json: true,
   });
+  macros.log(
+    `Received response from banner subject scrape with response code: ${response.statusCode}`
+  );
   if (response.statusCode !== 200) {
     macros.error(`Problem with request for subjects ${subjectUrl}`);
   }
