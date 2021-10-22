@@ -23,35 +23,36 @@ const request = new Request("bannerv9Parser");
  */
 class Bannerv9Parser {
   async main(termsUrl) {
-    const termIds = (await this.getTermList(termsUrl)).map((t) => {
-      return t.termId;
-    });
-    const suffixes = [
-      "10",
-      "12",
-      "14",
-      "15",
-      "18",
-      "25",
-      "28",
-      "30",
-      "32",
-      "34",
-      "35",
-      "38",
-      "40",
-      "50",
-      "52",
-      "54",
-      "55",
-      "58",
-      "60",
-    ];
-    const undergradIds = termIds
-      .filter((t) => {
-        return suffixes.includes(t.slice(-2));
-      })
-      .slice(0, suffixes.length);
+    // const termIds = (await this.getTermList(termsUrl)).map((t) => {
+    //   return t.termId;
+    // });
+    // const suffixes = [
+    //   "10",
+    //   "12",
+    //   "14",
+    //   "15",
+    //   "18",
+    //   "25",
+    //   "28",
+    //   "30",
+    //   "32",
+    //   "34",
+    //   "35",
+    //   "38",
+    //   "40",
+    //   "50",
+    //   "52",
+    //   "54",
+    //   "55",
+    //   "58",
+    //   "60",
+    // ];
+    // const undergradIds = termIds
+    //   .filter((t) => {
+    //     return suffixes.includes(t.slice(-2));
+    //   })
+    //   .slice(0, suffixes.length);
+    const undergradIds = ["202210"];
     macros.log(`Scraping classes for the following terms: ${undergradIds}`);
 
     // If scrapers are simplified then this logic would ideally be moved closer to the scraper "entry-point"
