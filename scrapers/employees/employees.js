@@ -225,6 +225,9 @@ class Employee {
 
   parseLettersResponse(response, lastNameStart) {
     return new Promise((resolve, reject) => {
+      macros.log(
+        `Starting neu employee parseLettersResponse for last name ${lastNameStart}`
+      );
       this.handleRequestResponce(response.body, (err, dom) => {
         const elements = domutils.getElementsByTagName("table", dom);
 
@@ -242,6 +245,9 @@ class Employee {
             const tableData = this.parseTable(element);
 
             if (!tableData) {
+              macros.log(
+                `Finished neu employee parseLettersResponse for last name ${lastNameStart}`
+              );
               return resolve();
             }
 
@@ -352,12 +358,18 @@ class Employee {
               // Add it to the people list
               this.people.push(person);
             }
+            macros.log(
+              `Finished neu employee parseLettersResponse for last name ${lastNameStart}`
+            );
             return resolve();
           }
         }
 
         macros.error("YOOOOO it didnt find the table", response.body.length);
         macros.error(response.body);
+        macros.log(
+          `Finished with ERROR neu employee parseLettersResponse for last name ${lastNameStart}`
+        );
         return reject();
       });
     });
@@ -367,11 +379,8 @@ class Employee {
     const jsessionCookie = await this.getCookiePromise();
 
     macros.verbose("neu employee got cookie", jsessionCookie);
-    macros.log(`Starting neu employee get for last name ${lastNameStart}`);
     const response = await this.hitWithLetters(lastNameStart, jsessionCookie);
-    macros.log(
-      `Finished neu employee get for last name ${lastNameStart} with ${response.statusCode}`
-    );
+
     return this.parseLettersResponse(response, lastNameStart);
   }
 
