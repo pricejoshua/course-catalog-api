@@ -367,9 +367,11 @@ class Employee {
     const jsessionCookie = await this.getCookiePromise();
 
     macros.verbose("neu employee got cookie", jsessionCookie);
-
+    macros.log(`Starting neu employee get for last name ${lastNameStart}`);
     const response = await this.hitWithLetters(lastNameStart, jsessionCookie);
-
+    macros.log(
+      `Finished neu employee get for last name ${lastNameStart} with ${response.statusCode}`
+    );
     return this.parseLettersResponse(response, lastNameStart);
   }
 
