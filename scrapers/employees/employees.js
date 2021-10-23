@@ -245,9 +245,6 @@ class Employee {
             const tableData = this.parseTable(element);
 
             if (!tableData) {
-              macros.log(
-                `Finished neu employee parseLettersResponse for last name ${lastNameStart}`
-              );
               return resolve();
             }
 
@@ -358,18 +355,12 @@ class Employee {
               // Add it to the people list
               this.people.push(person);
             }
-            macros.log(
-              `Finished neu employee parseLettersResponse for last name ${lastNameStart}`
-            );
             return resolve();
           }
         }
 
         macros.error("YOOOOO it didnt find the table", response.body.length);
         macros.error(response.body);
-        macros.log(
-          `Finished with ERROR neu employee parseLettersResponse for last name ${lastNameStart}`
-        );
         return reject();
       });
     });
@@ -410,7 +401,7 @@ class Employee {
 
     await Promise.all(promises);
 
-    macros.verbose("Finished scraping data for NEU employees");
+    macros.log("Finished scraping data for NEU employees");
 
     if (macros.DEV) {
       await cache.set(

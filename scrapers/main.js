@@ -21,9 +21,13 @@ class Main {
 
     const [termDump, mergedEmployees] = await Promise.all(promises);
 
+    macros.log("Finished scraping data for classes and employees");
+
+    macros.log("Starting insertion of scraped data");
+
     await dumpProcessor.main({ termDump: termDump, profDump: mergedEmployees });
 
-    macros.log("Finished scraping data for classes and employees");
+    macros.log("Finished insertion of scraped data");
   }
 }
 
