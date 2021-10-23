@@ -121,7 +121,9 @@ class CombineCCISandEmployees {
     const mergedPeopleList = [];
 
     let peopleListIndex = 0;
-
+    macros.log(
+      `Reached right before people list iter, peopleLists length: ${peopleLists.length}`
+    );
     // First, match people from the different data sources. The merging happens after the matching
     for (const peopleList of peopleLists) {
       macros.log(`At people list index  ${peopleListIndex}`);
