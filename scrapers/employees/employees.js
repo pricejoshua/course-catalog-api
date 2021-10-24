@@ -401,8 +401,6 @@ class Employee {
 
     await Promise.all(promises);
 
-    macros.log("Finished scraping data for NEU employees");
-
     if (macros.DEV) {
       await cache.set(
         macros.DEV_DATA_DIR,
@@ -412,6 +410,8 @@ class Employee {
       );
       macros.log(this.people.length, "employees saved to a file!");
     }
+
+    macros.log("Finished scraping data for NEU employees");
 
     return this.people;
   }
