@@ -110,13 +110,37 @@ class CombineCCISandEmployees {
 
   async main() {
     macros.log("Starting scrape for employees");
-    peopleLists = await Promise.all([
-      neuEmployees.main(),
-      ccisFaculty.main(),
-      csshFaculty.main(),
-      camdFaculty.main(),
-      coeFaculty.main(),
-    ]);
+
+    const neuEmployees = await neuEmployees.main();
+    macros.log(`Finished neu employees`);
+
+    const ccisFaculty = await ccisFaculty.main();
+    macros.log(`Finished ccis employees`);
+
+    const csshFaculty = await csshFaculty.main();
+    macros.log(`Finished cssh employees`);
+
+    const camdFaculty = await camdFaculty.main();
+    macros.log(`Finished camd employees`);
+
+    const coeFaculty = await coeFaculty.main();
+    macros.log(`Finished coe employees`);
+
+    peopleLists = [
+      neuEmployees,
+      ccisFaculty,
+      csshFaculty,
+      camdFaculty,
+      coeFaculty,
+    ];
+
+    // peopleLists = await Promise.all([
+    //   neuEmployees.main(),
+    //   ccisFaculty.main(),
+    //   csshFaculty.main(),
+    //   camdFaculty.main(),
+    //   coeFaculty.main(),
+    // ]);
 
     const mergedPeopleList = [];
 
