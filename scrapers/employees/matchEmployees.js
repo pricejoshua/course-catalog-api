@@ -111,27 +111,27 @@ class CombineCCISandEmployees {
   async main() {
     macros.log("Starting scrape for employees");
 
-    const neuEmployees = await neuEmployees.main();
+    const neuEmployeesResults = await neuEmployees.main();
     macros.log(`Finished neu employees`);
 
-    const ccisFaculty = await ccisFaculty.main();
+    const ccisFacultyResults = await ccisFaculty.main();
     macros.log(`Finished ccis employees`);
 
-    const csshFaculty = await csshFaculty.main();
+    const csshFacultyResults = await csshFaculty.main();
     macros.log(`Finished cssh employees`);
 
-    const camdFaculty = await camdFaculty.main();
+    const camdFacultyResults = await camdFaculty.main();
     macros.log(`Finished camd employees`);
 
-    const coeFaculty = await coeFaculty.main();
+    const coeFacultyResults = await coeFaculty.main();
     macros.log(`Finished coe employees`);
 
     peopleLists = [
-      neuEmployees,
-      ccisFaculty,
-      csshFaculty,
-      camdFaculty,
-      coeFaculty,
+      neuEmployeesResults,
+      ccisFacultyResults,
+      csshFacultyResults,
+      camdFacultyResults,
+      coeFacultyResults,
     ];
 
     // peopleLists = await Promise.all([
