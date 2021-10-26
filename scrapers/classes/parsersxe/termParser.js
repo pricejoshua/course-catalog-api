@@ -23,7 +23,7 @@ class TermParser {
    * @returns Object {classes, sections} where classes is a list of class data
    */
   async parseTerm(termId) {
-    macros.log(`Starting scrape for term ${termId}`);
+    macros.log(`TEST Starting scrape for term ${termId}`);
     const subjectTable = await getSubjectDescriptions(termId);
     let sections = await this.parseSections(termId);
     const courseIdentifiers = {};
@@ -51,7 +51,7 @@ class TermParser {
       ] = { termId, subject, classId };
     });
 
-    macros.log(`Starting scrape for class data for term ${termId}`);
+    macros.log(`TEST Starting scrape for class data for term ${termId}`);
     let classes = await pMap(
       Object.values(courseIdentifiers),
       ({ subject, classId }) => {
@@ -59,7 +59,7 @@ class TermParser {
       },
       { concurrency: 500 }
     );
-    macros.log(`Finished scraping class data for term ${termId}`);
+    macros.log(`TEST Finished scraping class data for term ${termId}`);
 
     // Custom scrapes should not scrape coreqs/prereqs/etc.
     if (!process.env.CUSTOM_SCRAPE) {
@@ -67,7 +67,7 @@ class TermParser {
     }
 
     macros.log(
-      `Finished scraping for term ${termId}. Scraped ${classes.length} classes and ${sections.length} sections`
+      `TEST Finished scraping for term ${termId}. Scraped ${classes.length} classes and ${sections.length} sections`
     );
 
     return { classes, sections, subjects: subjectTable };
@@ -148,7 +148,7 @@ class TermParser {
    * @return {Promise<Array>}
    */
   async requestsSectionsForTerm(termCode) {
-    macros.log(`Starting scrape for section data for ${termCode}`);
+    macros.log(`TEST Starting scrape for section data for ${termCode}`);
     const cookiejar = await util.getCookiesForSearch(termCode);
     // second, get the total number of sections in this semester
     try {
@@ -172,7 +172,7 @@ class TermParser {
       macros.error(`Could not get section data for ${termCode}`);
     }
 
-    macros.log(`Finished scraping section data for ${termCode}`);
+    macros.log(`TEST Finished scraping section data for ${termCode}`);
     return Promise.reject();
   }
 

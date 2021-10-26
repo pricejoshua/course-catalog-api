@@ -194,7 +194,7 @@ class Cssh {
   }
 
   async main() {
-    macros.log("Starting scrape for CSSH employees");
+    macros.log("TEST Starting scrape for CSSH employees");
     if (macros.DEV && require.main !== module) {
       const devData = await cache.get(
         macros.DEV_DATA_DIR,
@@ -244,7 +244,7 @@ class Cssh {
       macros.log(people.length, "cssh people saved to a file!");
     }
 
-    macros.log("Finished scraping data for CSSH employees");
+    macros.log("TEST Finished scraping data for CSSH employees");
 
     return people;
   }

@@ -225,9 +225,6 @@ class Employee {
 
   parseLettersResponse(response, lastNameStart) {
     return new Promise((resolve, reject) => {
-      macros.log(
-        `Starting neu employee parseLettersResponse for last name ${lastNameStart}`
-      );
       this.handleRequestResponce(response.body, (err, dom) => {
         const elements = domutils.getElementsByTagName("table", dom);
 
@@ -376,7 +373,7 @@ class Employee {
   }
 
   async main() {
-    macros.log("Starting scrape for NEU employees");
+    macros.log("TEST Starting scrape for NEU employees");
     // if this is dev and this data is already scraped, just return the data
     if (macros.DEV && require.main !== module) {
       const devData = await cache.get(
@@ -411,7 +408,7 @@ class Employee {
       macros.log(this.people.length, "employees saved to a file!");
     }
 
-    macros.log("Finished scraping data for NEU employees");
+    macros.log("TEST Finished scraping data for NEU employees");
 
     return this.people;
   }

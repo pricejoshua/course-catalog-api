@@ -14,20 +14,20 @@ import prisma from "../services/prisma";
 
 class Main {
   async main() {
-    macros.log("Starting scrape of classes and employees");
+    macros.log("TEST Starting scrape of classes and employees");
     const classesPromise = classes.main(["neu"]);
 
     const promises = [classesPromise, matchEmployees.main()];
 
     const [termDump, mergedEmployees] = await Promise.all(promises);
 
-    macros.log("Finished scraping data for classes and employees");
+    macros.log("TEST Finished scraping data for classes and employees");
 
-    macros.log("Starting insertion of scraped data");
+    macros.log("TEST Starting insertion of scraped data");
 
     await dumpProcessor.main({ termDump: termDump, profDump: mergedEmployees });
 
-    macros.log("Finished insertion of scraped data");
+    macros.log("TEST Finished insertion of scraped data");
   }
 }
 

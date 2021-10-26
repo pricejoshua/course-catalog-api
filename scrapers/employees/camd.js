@@ -146,7 +146,7 @@ class Camd {
   }
 
   async main() {
-    macros.log("Starting scrape for CAMD employees");
+    macros.log("TEST Starting scrape for CAMD employees");
     if (macros.DEV && require.main !== module) {
       const devData = await cache.get(
         macros.DEV_DATA_DIR,
@@ -207,7 +207,7 @@ class Camd {
       macros.log(people.length, "camd people saved to the cache file!");
     }
 
-    macros.log("Finished scraping data for CAMD employees");
+    macros.log("TEST Finished scraping data for CAMD employees");
 
     return people;
   }

@@ -98,7 +98,7 @@ class COE {
   }
 
   async main() {
-    macros.log("Starting scrape for COE employees");
+    macros.log("TEST Starting scrape for COE employees");
     if (macros.DEV && require.main !== module) {
       const devData = await cache.get(
         macros.DEV_DATA_DIR,
@@ -126,7 +126,7 @@ class COE {
       macros.log(peopleObjects.length, "coe people saved!");
     }
 
-    macros.log("Finished scraping data for COE employees");
+    macros.log("TEST Finished scraping data for COE employees");
     return peopleObjects;
   }
 }

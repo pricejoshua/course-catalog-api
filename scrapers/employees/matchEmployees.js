@@ -109,22 +109,22 @@ class CombineCCISandEmployees {
   }
 
   async main() {
-    macros.log("Starting scrape for employees");
+    macros.log("TEST Starting scrape for employees");
 
     const neuEmployeesResults = await neuEmployees.main();
-    macros.log(`Finished neu employees`);
+    macros.log(`TEST Finished neu employees`);
 
     const ccisFacultyResults = await ccisFaculty.main();
-    macros.log(`Finished ccis employees`);
+    macros.log(`TEST Finished ccis employees`);
 
     const csshFacultyResults = await csshFaculty.main();
-    macros.log(`Finished cssh employees`);
+    macros.log(`TEST Finished cssh employees`);
 
     const camdFacultyResults = await camdFaculty.main();
-    macros.log(`Finished camd employees`);
+    macros.log(`TEST Finished camd employees`);
 
     const coeFacultyResults = await coeFaculty.main();
-    macros.log(`Finished coe employees`);
+    macros.log(`TEST Finished coe employees`);
 
     peopleLists = [
       neuEmployeesResults,
@@ -463,7 +463,7 @@ class CombineCCISandEmployees {
       JSON.stringify(employeeDump)
     );
 
-    macros.log("Finished scraping data for employees");
+    macros.log("TEST Finished scraping data for employees");
 
     return mergedEmployees;
   }
