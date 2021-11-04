@@ -19,13 +19,21 @@ class Main {
 
     const promises = [classesPromise, matchEmployees.main()];
 
-    const [termDump, mergedEmployees] = await Promise.all(promises);
+    try {
+      const [termDump, mergedEmployees] = await Promise.all(promises);
 
-    macros.log("TEST Finished scraping data for classes and employees");
+      macros.log("TEST Finished scraping data for classes and employees");
 
-    macros.log("TEST Starting insertion of scraped data");
+      macros.log("TEST Starting insertion of scraped data");
 
-    await dumpProcessor.main({ termDump: termDump, profDump: mergedEmployees });
+      await dumpProcessor.main({
+        termDump: termDump,
+        profDump: mergedEmployees,
+      });
+    } catch (error) {
+      console.log("TEST error occurred ");
+      console.log(error);
+    }
 
     macros.log("TEST Finished insertion of scraped data");
   }

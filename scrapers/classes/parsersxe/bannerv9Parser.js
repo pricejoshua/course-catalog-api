@@ -52,7 +52,7 @@ class Bannerv9Parser {
     //     return suffixes.includes(t.slice(-2));
     //   })
     //   .slice(0, suffixes.length);
-    const undergradIds = ["202210"];
+    const undergradIds = ["202214"];
     macros.log(`Scraping classes for the following terms: ${undergradIds}`);
 
     // If scrapers are simplified then this logic would ideally be moved closer to the scraper "entry-point"

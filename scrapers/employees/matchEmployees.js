@@ -126,14 +126,13 @@ class CombineCCISandEmployees {
     const coeFacultyResults = await coeFaculty.main();
     macros.log(`TEST Finished coe employees`);
 
-    peopleLists = [
+    const peopleLists = [
       neuEmployeesResults,
       ccisFacultyResults,
       csshFacultyResults,
       camdFacultyResults,
       coeFacultyResults,
     ];
-
     // peopleLists = await Promise.all([
     //   neuEmployees.main(),
     //   ccisFaculty.main(),
@@ -146,7 +145,7 @@ class CombineCCISandEmployees {
 
     let peopleListIndex = 0;
     macros.log(
-      `Reached right before people list iter, peopleLists length: ${peopleLists.length}`
+      `TEST Reached right before people list iter, peopleLists length: ${peopleLists.length}`
     );
     // First, match people from the different data sources. The merging happens after the matching
     for (const peopleList of peopleLists) {
@@ -462,8 +461,10 @@ class CombineCCISandEmployees {
       path.join(macros.PUBLIC_DIR, "employeeDump.json"),
       JSON.stringify(employeeDump)
     );
-
-    macros.log("TEST Finished scraping data for employees");
+  }
+  catch(error) {
+    console.log("TEST ERROR OCCURRED");
+    console.log(error);
 
     return mergedEmployees;
   }
