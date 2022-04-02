@@ -19,7 +19,7 @@ class SectionParser {
   ): Promise<false | Section[]> {
     const cookiejar = await util.getCookiesForSearch(termId);
     const req = await requestObj.get({
-      url: "https://nubanner.neu.edu/StudentRegistrationSsb/ssb/searchResults/searchResults",
+      url: "https://bssstureg.wheaton.edu/StudentRegistrationSsb/ssb/searchResults/searchResults",
       qs: {
         txt_term: termId,
         txt_subject: subject,

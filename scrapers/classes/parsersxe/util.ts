@@ -89,7 +89,7 @@ async function getCookiesForSearch(termId: string): Promise<req.CookieJar> {
   // first, get the cookies
   // https://jennydaman.gitlab.io/nubanned/dark.html#studentregistrationssb-clickcontinue-post
   const clickContinue = await requestObj.post({
-    url: "https://nubanner.neu.edu/StudentRegistrationSsb/ssb/term/search?mode=search",
+    url: "https://bssstureg.wheaton.edu/StudentRegistrationSsb/ssb/term/search?mode=search",
     form: {
       term: termId,
     },
@@ -107,7 +107,7 @@ async function getCookiesForSearch(termId: string): Promise<req.CookieJar> {
   for (const cookie of clickContinue.headers["set-cookie"]) {
     cookiejar.setCookie(
       cookie,
-      "https://nubanner.neu.edu/StudentRegistrationSsb/"
+      "https://bssstureg.wheaton.edu/StudentRegistrationSsb/"
     );
   }
   return cookiejar;

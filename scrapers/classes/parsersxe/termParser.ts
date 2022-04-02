@@ -42,7 +42,7 @@ class TermParser {
       sections = sections.filter(
         (s) =>
           filters.campus(s.campus) &&
-          filters.subject(s.subject) &&
+          // filters.subject(s.subject) &&
           filters.courseNumber(parseInt(s.classId))
       );
     }
@@ -139,7 +139,7 @@ class TermParser {
     try {
       return (await this.concatPagination(async (offset, pageSize) => {
         const req = await request.get({
-          url: "https://nubanner.neu.edu/StudentRegistrationSsb/ssb/courseSearchResults/courseSearchResults",
+          url: "https://bssstureg.wheaton.edu/StudentRegistrationSsb/ssb/courseSearchResults/courseSearchResults",
           qs: {
             txt_term: termId,
             pageOffset: offset,
@@ -170,7 +170,7 @@ class TermParser {
     try {
       return (await this.concatPagination(async (offset, pageSize) => {
         const req = await request.get({
-          url: "https://nubanner.neu.edu/StudentRegistrationSsb/ssb/searchResults/searchResults",
+          url: "https://bssstureg.wheaton.edu/StudentRegistrationSsb/ssb/searchResults/searchResults",
           qs: {
             txt_term: termId,
             pageOffset: offset,

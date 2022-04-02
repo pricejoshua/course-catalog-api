@@ -17,7 +17,7 @@ console.log(`[${new Date()}]\tstarting parsersxe/startup.js`);
 const Parser = require("./bannerv9Parser.ts").default;
 
 Parser.getAllTermInfos(
-  `https://nubanner.neu.edu/StudentRegistrationSsb/ssb/classSearch/getTerms?offset=1&max=${maxTerms}&searchTerm=`
+  `https://bssstureg.wheaton.edu/StudentRegistrationSsb/ssb/classSearch/getTerms?offset=1&max=${maxTerms}&searchTerm=`
 )
   .then((terms) =>
     Parser.main(terms)

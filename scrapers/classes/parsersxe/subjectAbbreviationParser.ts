@@ -31,7 +31,7 @@ export const getSubjectDescriptions = _.memoize(async (termId: string) => {
 async function requestSubjects(termId: string): Promise<SubjectDescription[]> {
   const MAX = 500; // If there are more than 500 THIS WILL BREAK. Would make it smarter but not worth it rn.
   const URL =
-    "https://nubanner.neu.edu/StudentRegistrationSsb/ssb/courseSearch/get_subject";
+    "https://bssstureg.wheaton.edu/StudentRegistrationSsb/ssb/courseSearch/get_subject";
   const subjectUrl = `${URL}?searchTerm=&term=${termId}&offset=1&max=${MAX}`;
   const response = await request.get({
     url: subjectUrl,
