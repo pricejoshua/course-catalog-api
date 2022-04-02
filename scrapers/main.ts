@@ -3,7 +3,7 @@
  * See the license file in the root folder for details.
  */
 
-import matchEmployees from "./employees/matchEmployees";
+// import matchEmployees from "./employees/matchEmployees";
 import macros from "../utils/macros";
 import classes from "./classes/main";
 import dumpProcessor from "../services/dumpProcessor";
@@ -11,7 +11,7 @@ import prisma from "../services/prisma";
 import { instance as bannerv9parser } from "./classes/parsersxe/bannerv9Parser";
 import bannerv9CollegeUrls from "./classes/bannerv9CollegeUrls";
 import { ParsedTermSR } from "../types/scraperTypes";
-import { EmployeeWithId } from "../types/types";
+// import { EmployeeWithId } from "../types/types";
 import "colors";
 
 // Main file for scraping
@@ -27,16 +27,16 @@ class Main {
       allTermInfos
     );
 
-    const promises: [Promise<ParsedTermSR>, Promise<EmployeeWithId[]>] = [
-      classes.main(["neu"], allTermInfos),
-      matchEmployees.main(),
+    const promises: [Promise<ParsedTermSR>] = [
+      //, Promise<EmployeeWithId[]>
+      classes.main(["wheaton"], allTermInfos),
+      // matchEmployees.main(),
     ];
 
-    const [termDump, mergedEmployees] = await Promise.all(promises);
+    const [termDump] = await Promise.all(promises);
 
     await dumpProcessor.main({
       termDump: termDump,
-      profDump: mergedEmployees,
       destroy: true,
       currentTermInfos: currentTermInfos,
     });

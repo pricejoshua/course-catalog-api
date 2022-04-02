@@ -38,7 +38,7 @@ class ClassParser {
   ): Promise<false | ParsedCourseSR> {
     const cookiejar = await util.getCookiesForSearch(termId);
     const req = await request.get({
-      url: "https://nubanner.neu.edu/StudentRegistrationSsb/ssb/courseSearchResults/courseSearchResults",
+      url: "https://bssstureg.wheaton.edu/StudentRegistrationSsb/ssb/courseSearchResults/courseSearchResults",
       qs: {
         txt_term: termId,
         txt_subject: subject,
@@ -96,7 +96,7 @@ class ClassParser {
       await this.getFees(termId, subjectCode, courseNumber);
     // The type we have is basically an expanded Course
     const classDetails: ParsedCourseSR = {
-      host: "neu.edu",
+      host: "wheaton.edu",
       termId: termId,
       subject: subjectCode,
       classId: courseNumber,
@@ -259,7 +259,7 @@ class ClassParser {
      * request will retry 35 attempts before crashing.
      */
     return await request.post({
-      url: `https://nubanner.neu.edu/StudentRegistrationSsb/ssb/courseSearchResults/${endpoint}`,
+      url: `https://bssstureg.wheaton.edu/StudentRegistrationSsb/ssb/courseSearchResults/${endpoint}`,
       form: {
         term: termId,
         subjectCode: subject,
@@ -301,7 +301,7 @@ class ClassParser {
           subject,
           classId,
           termId,
-          host: "neu.edu",
+          host: "wheaton.edu",
         })]: { subject, classId, termId },
       };
     }, {});

@@ -2,5 +2,6 @@
 // Right now, there is only 1 (neu), but we could add other colleges here too.
 
 export default [
-  "https://nubanner.neu.edu/StudentRegistrationSsb/ssb/classSearch/getTerms?offset=1&max=200&searchTerm=",
+  // "https://nubanner.neu.edu/StudentRegistrationSsb/ssb/classSearch/getTerms?offset=1&max=200&searchTerm=",
+  "https://bssstureg.wheaton.edu/StudentRegistrationSsb/ssb/classSearch/getTerms?offset=1&max=200&searchTerm=",
 ];

@@ -143,7 +143,7 @@ export class Bannerv9Parser {
   // Just a convenient test method, if you want to
   async test(): Promise<void> {
     const numTerms = 20;
-    const url = `https://nubanner.neu.edu/StudentRegistrationSsb/ssb/classSearch/getTerms?offset=1&max=${numTerms}&searchTerm=`;
+    const url = `https://bssstureg.wheaton.edu/StudentRegistrationSsb/ssb/classSearch/getTerms?offset=1&max=${numTerms}&searchTerm=`;
     const termInfos = await this.getAllTermInfos(url);
     const output = await this.main(termInfos);
     // eslint-disable-next-line @typescript-eslint/no-var-requires
