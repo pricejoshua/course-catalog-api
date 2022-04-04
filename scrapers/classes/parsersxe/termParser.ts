@@ -33,6 +33,7 @@ class TermParser {
   async parseTerm(termId: string): Promise<ParsedTermSR> {
     macros.log(`Parsing term ${termId}`);
     const subjectTable = await getSubjectDescriptions(termId);
+    macros.log("got subj");
     let sections: Section[] = await this.parseSections(termId);
 
     const courseIdentifiers: Record<string, CourseRef> = {};
@@ -74,9 +75,9 @@ class TermParser {
     );
 
     // Custom scrapes should not scrape coreqs/prereqs/etc.
-    if (!process.env.CUSTOM_SCRAPE) {
-      classes = await this.addCourseRefs(classes, courseIdentifiers, termId);
-    }
+    // if (!process.env.CUSTOM_SCRAPE) {
+    //   classes = await this.addCourseRefs(classes, courseIdentifiers, termId);
+    // }
 
     macros.log(
       `Term ${termId} scraped ${classes.length} classes and ${sections.length} sections`

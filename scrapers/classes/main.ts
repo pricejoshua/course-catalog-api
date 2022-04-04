@@ -78,7 +78,6 @@ class Main {
     // }
 
     macros.warn("BOUT TO SCRAPE");
-    // TODO fix this \/
     const bannerv9ParserOutput = await bannerv9Parser.main(termInfos);
     macros.warn("SCRAPEd");
 

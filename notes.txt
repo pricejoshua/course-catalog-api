@@ -1,0 +1,14 @@
+# query to get class sections
+query Class($subject: String!, $classId: String!) {
+  class(subject: $subject, classId: $classId) {
+    allOccurrences {
+      name
+      subject
+      classId
+      termId
+      sections {
+        meetings
+      }
+    }
+  }
+}

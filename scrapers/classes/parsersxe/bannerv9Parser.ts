@@ -4,7 +4,7 @@
  */
 
 import _ from "lodash";
-import pMap from "p-map";
+import pMap, { pMapSkip } from "p-map";
 import Request from "../../request";
 import macros from "../../../utils/macros";
 import TermListParser from "./termListParser";
@@ -25,7 +25,7 @@ At most, there are 12 terms that we want to update - if we're in the spring & su
 - CPS: spring (semester & quarter), summer (semester & quarter)
 - Law: spring (semester & quarter), summer (semester & quarter)
 */
-export const NUMBER_OF_TERMS_TO_UPDATE = 3;
+export const NUMBER_OF_TERMS_TO_UPDATE = 6;
 
 /**
  * Top level parser. Exposes nice interface to rest of app.
@@ -95,9 +95,21 @@ export class Bannerv9Parser {
    * @returns Object {classes, sections} where classes is a list of class data
    */
   async scrapeTerms(termIds: string[]): Promise<ParsedTermSR> {
+    const tIds = ["202205", "202208"];
     const termData: ParsedTermSR[] = await pMap(termIds, (p) => {
-      return TermParser.parseTerm(p);
+      // const parsedTerm = TermParser.parseTerm(p);
+      // parsedTerm.catch((error) => {
+      //   console.error(error);
+      // });
+      // return parsedTerm;
+      try {
+        const parsedTerm = TermParser.parseTerm(p);
+        return parsedTerm;
+      } catch {
+        return pMapSkip;
+      }
     });
+    console.log("scraped");
 
     // Merges each ParsedTermSR into one big ParsedTermSR, containing all the data from each
     const test = termData.reduce(

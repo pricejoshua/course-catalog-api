@@ -20,8 +20,8 @@ const collegeNames = {
   0: "WHEATON",
   2: "LAW",
   8: "LAW",
-  4: "CPS",
-  5: "CPS",
+  4: "HR",
+  5: "HR2",
 };
 
 class ClassParser {
@@ -109,7 +109,7 @@ class ClassParser {
       name: he.decode(SR.courseTitle),
       url:
         "https://bannerweb.wheaton.edu/db1/bwckctlg.p_disp_course_detail?" +
-        `cat_term_in=${termId}&subj_code_in=${subjectCode}&crse_numb_in=${courseNumber}&schd_in=%`,
+        `cat_term_in=${termId}&subj_code_in=${subjectCode}&crse_numb_in=${courseNumber}`,
       lastUpdateTime: Date.now(),
       maxCredits: SR.creditHourHigh || SR.creditHourLow,
       minCredits: SR.creditHourLow,
