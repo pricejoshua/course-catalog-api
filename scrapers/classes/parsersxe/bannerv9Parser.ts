@@ -25,7 +25,7 @@ At most, there are 12 terms that we want to update - if we're in the spring & su
 - CPS: spring (semester & quarter), summer (semester & quarter)
 - Law: spring (semester & quarter), summer (semester & quarter)
 */
-export const NUMBER_OF_TERMS_TO_UPDATE = 12;
+export const NUMBER_OF_TERMS_TO_UPDATE = 3;
 
 /**
  * Top level parser. Exposes nice interface to rest of app.

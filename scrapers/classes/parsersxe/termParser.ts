@@ -52,7 +52,7 @@ class TermParser {
       const classId = section.classId;
       courseIdentifiers[
         keys.getClassHash({
-          host: "neu.edu",
+          host: "wheaton.edu",
           termId,
           subject,
           classId,
@@ -180,7 +180,12 @@ class TermParser {
           json: true,
         });
         if (req.body.success) {
-          return { items: req.body.data, totalCount: req.body.totalCount };
+          const test = {
+            items: req.body.data,
+            totalCount: req.body.totalCount,
+          };
+          console.log(test);
+          return test;
         }
         return false;
       })) as SectionSR[];

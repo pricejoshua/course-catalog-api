@@ -122,7 +122,9 @@ class CourseSerializer<C extends Partial<Course>, S extends Partial<Section>> {
 
   // TODO this should definitely be eliminated
   getClassHash(course: C): string {
-    return ["neu.edu", course.termId, course.subject, course.classId].join("/");
+    return ["wheaton.edu", course.termId, course.subject, course.classId].join(
+      "/"
+    );
   }
 
   courseProps(): string[] {
