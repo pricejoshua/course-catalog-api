@@ -51,11 +51,11 @@ export interface FacultyMeetingTime {
   wednesday: boolean;
 }
 
-export const NEU_COLLEGE = "NEU";
+export const WHEATON_COLLEGE = "WHEATON";
 export const CPS_COLLEGE = "CPS";
 export const LAW_COLLEGE = "LAW";
 
-export type CollegeNames = "NEU" | "CPS" | "LAW";
+export type CollegeNames = "WHEATON" | "CPS" | "LAW";
 
 export interface EmployeeRequestResponse {
   RecordNumber: string;

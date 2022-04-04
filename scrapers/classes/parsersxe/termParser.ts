@@ -184,7 +184,6 @@ class TermParser {
             items: req.body.data,
             totalCount: req.body.totalCount,
           };
-          console.log(test);
           return test;
         }
         return false;

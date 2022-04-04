@@ -20,7 +20,7 @@ class TermListParser {
       );
 
       return {
-        host: "neu.edu",
+        host: "wheaton.edu",
         termId: term.code,
         text: text,
         subCollege: subCollege,
@@ -42,7 +42,7 @@ class TermListParser {
     } else if (termDesc.includes("Law")) {
       return "LAW";
     } else {
-      return "NEU";
+      return "WHEATON";
     }
   }
 }

@@ -257,7 +257,7 @@ class Updater {
   static getCampusFromTerm(term: string): string {
     const campusIdentifier = term[5];
     if (campusIdentifier === "0") {
-      return "NEU";
+      return "WHEATON";
     } else if (campusIdentifier === "2" || campusIdentifier === "8") {
       return "LAW";
     } else if (campusIdentifier === "4" || campusIdentifier === "5") {

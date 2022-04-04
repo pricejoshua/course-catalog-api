@@ -45,7 +45,7 @@ class SectionParser {
    */
   parseSectionFromSearchResult(SR: SectionSR): Section {
     return {
-      host: "neu.edu",
+      host: "wheaton.edu",
       termId: SR.term,
       subject: SR.subject,
       classId: SR.courseNumber,
@@ -61,7 +61,7 @@ class SectionParser {
         return a.description === "Honors";
       }),
       url:
-        "https://wl11gp.neu.edu/udcprod8/bwckschd.p_disp_detail_sched" +
+        "https://bannerweb.wheaton.edu/db1/bwckschd.p_disp_detail_sched" +
         `?term_in=${SR.term}&crn_in=${SR.courseReferenceNumber}`,
       profs: SR.faculty.map(MeetingParser.profName),
       meetings: MeetingParser.parseMeetings(SR.meetingsFaculty),

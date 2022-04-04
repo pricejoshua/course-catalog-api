@@ -17,7 +17,7 @@ import { CourseSR, ParsedCourseSR } from "../../../types/scraperTypes";
 const request = new Request("classParser");
 
 const collegeNames = {
-  0: "NEU",
+  0: "WHEATON",
   2: "LAW",
   8: "LAW",
   4: "CPS",
@@ -104,12 +104,12 @@ class ClassParser {
       nupath: this.nupath(attributes),
       desc: he.decode(description),
       prettyUrl:
-        "https://wl11gp.neu.edu/udcprod8/bwckctlg.p_disp_course_detail?" +
+        "https://bannerweb.wheaton.edu/db1/bwckctlg.p_disp_course_detail?" +
         `cat_term_in=${termId}&subj_code_in=${subjectCode}&crse_numb_in=${courseNumber}`,
       name: he.decode(SR.courseTitle),
       url:
-        "https://wl11gp.neu.edu/udcprod8/bwckctlg.p_disp_listcrse?" +
-        `term_in=${termId}&subj_in=${subjectCode}&crse_in=${courseNumber}&schd_in=%`,
+        "https://bannerweb.wheaton.edu/db1/bwckctlg.p_disp_course_detail?" +
+        `cat_term_in=${termId}&subj_code_in=${subjectCode}&crse_numb_in=${courseNumber}&schd_in=%`,
       lastUpdateTime: Date.now(),
       maxCredits: SR.creditHourHigh || SR.creditHourLow,
       minCredits: SR.creditHourLow,

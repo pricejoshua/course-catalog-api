@@ -100,7 +100,7 @@ export class Bannerv9Parser {
     });
 
     // Merges each ParsedTermSR into one big ParsedTermSR, containing all the data from each
-    return termData.reduce(
+    const test = termData.reduce(
       (acc, cur) => {
         // Merge the two objects by keys
         return _.mergeWith(acc, cur, (a, b) => {
@@ -112,6 +112,8 @@ export class Bannerv9Parser {
       },
       { classes: [], sections: [], subjects: {} }
     );
+
+    return test;
   }
 
   /**
