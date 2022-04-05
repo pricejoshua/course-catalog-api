@@ -75,9 +75,9 @@ class TermParser {
     );
 
     // Custom scrapes should not scrape coreqs/prereqs/etc.
-    // if (!process.env.CUSTOM_SCRAPE) {
-    //   classes = await this.addCourseRefs(classes, courseIdentifiers, termId);
-    // }
+    if (!process.env.CUSTOM_SCRAPE) {
+      classes = await this.addCourseRefs(classes, courseIdentifiers, termId);
+    }
 
     macros.log(
       `Term ${termId} scraped ${classes.length} classes and ${sections.length} sections`
